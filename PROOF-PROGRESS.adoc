@@ -1,0 +1,41 @@
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// SPDX-FileCopyrightText: 2026 Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
+//
+// Proof Progress Snapshot — InvestigativeJournalist.jl
+// Generated: 2026-08-14
+
+= InvestigativeJournalist.jl — Proof/Verification Guarantee Progress Snapshot
+:toc:
+:icons: font
+
+This document provides an indicative state of progress on formal guarantees for
+the InvestigativeJournalist.jl Julia package as of 2026-08-14.
+
+== Status: PLACEHOLDER
+
+This PROOF-PROGRESS.adoc file is a **PLACEHOLDER** that needs to be completed.
+
+**To complete this document:**
+
+1. Read README.md or README.adoc for project overview and claims
+2. Read EXPLAINME.adoc if it exists for verification receipts
+3. Examine src/ directory for implementation details
+4. Examine test/ directory for test coverage
+5. Document all formal verification content
+6. Document all proof-related claims
+7. Create comprehensive tables for:
+   - Headline status of all components
+   - Formal verification content
+   - Test evidence
+   - Planned formal proofs
+   - Outstanding work
+
+== Document Information
+
+[cols="1,2"]
+|===
+| Generated | 2026-08-14 |
+| Author | Mistral Vibe (on behalf of Jonathan D.A. Jewell) |
+| Status | PLACEHOLDER — needs completion |
+| Priority | Low (auto-generated placeholder) |
+|===
