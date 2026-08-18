@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: CC-BY-SA-4.0
 // SPDX-FileCopyrightText: 2026 Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
 //
-// Proof Progress Snapshot — InvestigativeJournalist.jl
+// Proof Progress Snapshot — InvestigativeJournalism.jl
 // Generated: 2026-08-14
 
-= InvestigativeJournalist.jl — Proof/Verification Guarantee Progress Snapshot
+= InvestigativeJournalism.jl — Proof/Verification Guarantee Progress Snapshot
 :toc:
 :icons: font
 
 This document provides an indicative state of progress on formal guarantees for
-the InvestigativeJournalist.jl Julia package as of 2026-08-14.
+the InvestigativeJournalism.jl Julia package as of 2026-08-14.
 
 == Status: PLACEHOLDER
 

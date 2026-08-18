@@ -33,7 +33,7 @@ Key workflows:
 
 [source,bash]
 ----
-podman build -f Containerfile -t InvestigativeJournalist.jl:latest .
+podman build -f Containerfile -t InvestigativeJournalism.jl:latest .
 ----
 
 == Mirrors

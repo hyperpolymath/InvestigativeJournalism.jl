@@ -1,7 +1,7 @@
-# ⚓ ANCHOR: InvestigativeJournalist.jl
-# This is the canonical authority for the InvestigativeJournalist.jl repository.
+# ⚓ ANCHOR: InvestigativeJournalism.jl
+# This is the canonical authority for the InvestigativeJournalism.jl repository.
 
-id: "org.hyperpolymath.InvestigativeJournalist.jl"
+id: "org.hyperpolymath.InvestigativeJournalism.jl"
 version: "1.0.0"
 clade: "unknown"
 status: "active"

@@ -6,8 +6,8 @@
 uuid = "0913d39a-bde3-50d0-a124-4c4e17c347d9"
 primary-forge = "github"
 primary-owner = "hyperpolymath"
-canonical-name = "InvestigativeJournalist.jl"
-prefixed-name = "ap-InvestigativeJournalist.jl"
+canonical-name = "InvestigativeJournalism.jl"
+prefixed-name = "ap-InvestigativeJournalism.jl"
 
 [clade]
 primary = "ap"
@@ -16,9 +16,9 @@ assigned = "2026-03-16"
 rationale = ""
 
 [forges]
-github = "hyperpolymath/InvestigativeJournalist.jl"
-gitlab = "hyperpolymath/InvestigativeJournalist.jl"
-bitbucket = "hyperpolymath/InvestigativeJournalist.jl"
+github = "hyperpolymath/InvestigativeJournalism.jl"
+gitlab = "hyperpolymath/InvestigativeJournalism.jl"
+bitbucket = "hyperpolymath/InvestigativeJournalism.jl"
 
 [lineage]
 type = "standalone"

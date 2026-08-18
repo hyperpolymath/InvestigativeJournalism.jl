@@ -1,12 +1,12 @@
 # SPDX-License-Identifier: MPL-2.0
 # (MPL-2.0 preferred; MPL-2.0 required for Julia ecosystem)
-# BenchmarkTools benchmarks for InvestigativeJournalist.jl.
+# BenchmarkTools benchmarks for InvestigativeJournalism.jl.
 
 using BenchmarkTools
-using InvestigativeJournalist
+using InvestigativeJournalism
 using Dates
 
-println("=== InvestigativeJournalist.jl Benchmarks ===")
+println("=== InvestigativeJournalism.jl Benchmarks ===")
 
 # --- Type construction ---
 
@@ -43,7 +43,7 @@ println("\n-- Podcast script assembly --")
 
 function build_script(n_segments::Int)
     script = PodcastScript("Bench Episode",
-                           InvestigativeJournalist.AudioProduction.PodcastSegment[])
+                           InvestigativeJournalism.AudioProduction.PodcastSegment[])
     for i in 1:n_segments
         add_segment!(script, "$(i):00", "Speaker$(i)", "Content block $(i)")
     end

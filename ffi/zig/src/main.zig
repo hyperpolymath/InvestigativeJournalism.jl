@@ -52,7 +52,7 @@ pub const Handle = opaque {
 
 /// Initialize the library
 /// Returns a handle, or null on failure
-export fn InvestigativeJournalist.jl_init() ?*Handle {
+export fn InvestigativeJournalism.jl_init() ?*Handle {
     const allocator = std.heap.c_allocator;
 
     const handle = allocator.create(Handle) catch {
@@ -71,7 +71,7 @@ export fn InvestigativeJournalist.jl_init() ?*Handle {
 }
 
 /// Free the library handle
-export fn InvestigativeJournalist.jl_free(handle: ?*Handle) void {
+export fn InvestigativeJournalism.jl_free(handle: ?*Handle) void {
     const h = handle orelse return;
     const allocator = h.allocator;
 
@@ -87,7 +87,7 @@ export fn InvestigativeJournalist.jl_free(handle: ?*Handle) void {
 //==============================================================================
 
 /// Process data (example operation)
-export fn InvestigativeJournalist.jl_process(handle: ?*Handle, input: u32) Result {
+export fn InvestigativeJournalism.jl_process(handle: ?*Handle, input: u32) Result {
     const h = handle orelse {
         setError("Null handle");
         return .null_pointer;
@@ -111,7 +111,7 @@ export fn InvestigativeJournalist.jl_process(handle: ?*Handle, input: u32) Resul
 
 /// Get a string result (example)
 /// Caller must free the returned string
-export fn InvestigativeJournalist.jl_get_string(handle: ?*Handle) ?[*:0]const u8 {
+export fn InvestigativeJournalism.jl_get_string(handle: ?*Handle) ?[*:0]const u8 {
     const h = handle orelse {
         setError("Null handle");
         return null;
@@ -133,7 +133,7 @@ export fn InvestigativeJournalist.jl_get_string(handle: ?*Handle) ?[*:0]const u8
 }
 
 /// Free a string allocated by the library
-export fn InvestigativeJournalist.jl_free_string(str: ?[*:0]const u8) void {
+export fn InvestigativeJournalism.jl_free_string(str: ?[*:0]const u8) void {
     const s = str orelse return;
     const allocator = std.heap.c_allocator;
 
@@ -146,7 +146,7 @@ export fn InvestigativeJournalist.jl_free_string(str: ?[*:0]const u8) void {
 //==============================================================================
 
 /// Process an array of data
-export fn InvestigativeJournalist.jl_process_array(
+export fn InvestigativeJournalism.jl_process_array(
     handle: ?*Handle,
     buffer: ?[*]const u8,
     len: u32,
@@ -182,7 +182,7 @@ export fn InvestigativeJournalist.jl_process_array(
 
 /// Get the last error message
 /// Returns null if no error
-export fn InvestigativeJournalist.jl_last_error() ?[*:0]const u8 {
+export fn InvestigativeJournalism.jl_last_error() ?[*:0]const u8 {
     const err = last_error orelse return null;
 
     // Return C string (static storage, no need to free)
@@ -196,12 +196,12 @@ export fn InvestigativeJournalist.jl_last_error() ?[*:0]const u8 {
 //==============================================================================
 
 /// Get the library version
-export fn InvestigativeJournalist.jl_version() [*:0]const u8 {
+export fn InvestigativeJournalism.jl_version() [*:0]const u8 {
     return VERSION.ptr;
 }
 
 /// Get build information
-export fn InvestigativeJournalist.jl_build_info() [*:0]const u8 {
+export fn InvestigativeJournalism.jl_build_info() [*:0]const u8 {
     return BUILD_INFO.ptr;
 }
 
@@ -213,7 +213,7 @@ export fn InvestigativeJournalist.jl_build_info() [*:0]const u8 {
 pub const Callback = *const fn (u64, u32) callconv(.C) u32;
 
 /// Register a callback
-export fn InvestigativeJournalist.jl_register_callback(
+export fn InvestigativeJournalism.jl_register_callback(
     handle: ?*Handle,
     callback: ?Callback,
 ) Result {
@@ -244,7 +244,7 @@ export fn InvestigativeJournalist.jl_register_callback(
 //==============================================================================
 
 /// Check if handle is initialized
-export fn InvestigativeJournalist.jl_is_initialized(handle: ?*Handle) u32 {
+export fn InvestigativeJournalism.jl_is_initialized(handle: ?*Handle) u32 {
     const h = handle orelse return 0;
     return if (h.initialized) 1 else 0;
 }
@@ -254,22 +254,22 @@ export fn InvestigativeJournalist.jl_is_initialized(handle: ?*Handle) u32 {
 //==============================================================================
 
 test "lifecycle" {
-    const handle = InvestigativeJournalist.jl_init() orelse return error.InitFailed;
-    defer InvestigativeJournalist.jl_free(handle);
+    const handle = InvestigativeJournalism.jl_init() orelse return error.InitFailed;
+    defer InvestigativeJournalism.jl_free(handle);
 
-    try std.testing.expect(InvestigativeJournalist.jl_is_initialized(handle) == 1);
+    try std.testing.expect(InvestigativeJournalism.jl_is_initialized(handle) == 1);
 }
 
 test "error handling" {
-    const result = InvestigativeJournalist.jl_process(null, 0);
+    const result = InvestigativeJournalism.jl_process(null, 0);
     try std.testing.expectEqual(Result.null_pointer, result);
 
-    const err = InvestigativeJournalist.jl_last_error();
+    const err = InvestigativeJournalism.jl_last_error();
     try std.testing.expect(err != null);
 }
 
 test "version" {
-    const ver = InvestigativeJournalist.jl_version();
+    const ver = InvestigativeJournalism.jl_version();
     const ver_str = std.mem.span(ver);
     try std.testing.expectEqualStrings(VERSION, ver_str);
 }

@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: MPL-2.0
 # (MPL-2.0 preferred; MPL-2.0 required for Julia ecosystem)
-# Property-based invariant tests for InvestigativeJournalist.jl.
+# Property-based invariant tests for InvestigativeJournalism.jl.
 
 using Test
-using InvestigativeJournalist
+using InvestigativeJournalism
 using Dates
 
 @testset "Property-Based Tests" begin

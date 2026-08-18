@@ -4,13 +4,13 @@ Copyright (c) Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
 -->
 <!-- Copyright (c) 2026 Jonathan D.A. Jewell (hyperpolymath) <j.d.a.jewell@open.ac.uk> -->
 
-# Threat Model: InvestigativeJournalist.Jl
+# Threat Model: InvestigativeJournalism.Jl
 
 ## Document Info
 
 | Field         | Value                          |
 |---------------|--------------------------------|
-| Project       | InvestigativeJournalist.Jl               |
+| Project       | InvestigativeJournalism.Jl               |
 | Version       | 1.0                            |
 | Last Reviewed | 2026-03-16                       |
 | Author        | Jonathan D.A. Jewell                     |
@@ -36,7 +36,7 @@ Copyright (c) Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
 
 ## System Overview
 
-Brief description of InvestigativeJournalist.Jl and its architecture.
+Brief description of InvestigativeJournalism.Jl and its architecture.
 
 > See [TOPOLOGY.md](../TOPOLOGY.md) for the full architecture diagram and completion dashboard.
 
