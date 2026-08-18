@@ -1,11 +1,11 @@
 # SPDX-License-Identifier: MPL-2.0
 # (MPL-2.0 preferred; MPL-2.0 required for Julia ecosystem)
-# E2E pipeline tests for InvestigativeJournalist.jl.
+# E2E pipeline tests for InvestigativeJournalism.jl.
 # Tests the full investigation lifecycle: document ingestion → claim extraction →
 # evidence linking → corroboration report → story drafting.
 
 using Test
-using InvestigativeJournalist
+using InvestigativeJournalism
 using Dates
 
 @testset "E2E Pipeline Tests" begin
@@ -63,7 +63,7 @@ using Dates
     @testset "Full pipeline: podcast script assembly" begin
         # Produce a structured podcast from investigation findings.
         script = PodcastScript("Exposé: The River Poisoning",
-                               InvestigativeJournalist.AudioProduction.PodcastSegment[])
+                               InvestigativeJournalism.AudioProduction.PodcastSegment[])
         add_segment!(script, "00:00", "Host", "Welcome to Deep Dive Investigations.")
         add_segment!(script, "02:30", "Reporter", "What the documents reveal.", :leak_001)
         add_segment!(script, "15:00", "Host", "Our conclusions and call to action.")

@@ -24,8 +24,8 @@ just init       # interactive placeholder replacement
 ## Clone and Setup (Existing Project)
 
 ```bash
-git clone https://github.com/hyperpolymath/InvestigativeJournalist.jl.git
-cd InvestigativeJournalist.jl
+git clone https://github.com/hyperpolymath/InvestigativeJournalism.jl.git
+cd InvestigativeJournalism.jl
 just deps
 ```
 
@@ -63,5 +63,5 @@ docs/        # Documentation
 If `just deps` fails, ensure your toolchain version matches the
 project requirements listed in the `Justfile` or `.machine_readable/ECOSYSTEM.a2ml`.
 
-Open a [Discussion](https://github.com/hyperpolymath/InvestigativeJournalist.jl/discussions)
+Open a [Discussion](https://github.com/hyperpolymath/InvestigativeJournalism.jl/discussions)
 if you get stuck.

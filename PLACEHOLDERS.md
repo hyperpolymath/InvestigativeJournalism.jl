@@ -4,7 +4,7 @@ Copyright (c) Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
 -->
 # Template Placeholders
 
-All placeholders in this template follow the `InvestigativeJournalist.jl` pattern.
+All placeholders in this template follow the `InvestigativeJournalism.jl` pattern.
 After cloning, replace them with your project-specific values.
 
 ## Recommended: Interactive Bootstrap
@@ -24,10 +24,10 @@ validates the result, and runs k9-svc checks if available.
 sed -i 's/Jonathan D.A. Jewell/Jane Doe/g' $(grep -rl 'Jonathan D.A. Jewell' .)
 sed -i 's/j.d.a.jewell@open.ac.uk/jane@example.org/g' $(grep -rl 'j.d.a.jewell@open.ac.uk' .)
 sed -i 's/hyperpolymath/my-org/g' $(grep -rl 'hyperpolymath' .)
-sed -i 's/InvestigativeJournalist.Jl/my-project/g' $(grep -rl 'InvestigativeJournalist.Jl' .)
-sed -i 's/InvestigativeJournalist.jl/MY_PROJECT/g' $(grep -rl 'InvestigativeJournalist.jl' .)
+sed -i 's/InvestigativeJournalism.Jl/my-project/g' $(grep -rl 'InvestigativeJournalism.Jl' .)
+sed -i 's/InvestigativeJournalism.jl/MY_PROJECT/g' $(grep -rl 'InvestigativeJournalism.jl' .)
 sed -i 's/{{project}}/my_project/g' $(grep -rl '{{project}}' .)
-sed -i 's/InvestigativeJournalist.jl/my-project/g' $(grep -rl 'InvestigativeJournalist.jl' .)
+sed -i 's/InvestigativeJournalism.jl/my-project/g' $(grep -rl 'InvestigativeJournalism.jl' .)
 sed -i 's/github.com/github.com/g' $(grep -rl 'github.com' .)
 sed -i "s/2026/$(date +%Y)/g" $(grep -rl '2026' .)
 sed -i "s/2026-03-16/$(date +%Y-%m-%d)/g" $(grep -rl '2026-03-16' .)
@@ -51,11 +51,11 @@ sed -i "s/2026-03-16/$(date +%Y-%m-%d)/g" $(grep -rl '2026-03-16' .)
 
 | Placeholder | Description | Example | Files |
 |---|---|---|---|
-| `InvestigativeJournalist.Jl` | Human-readable project name | `My Project` | SECURITY.md, CODE_OF_CONDUCT.md, TOPOLOGY.md, STATE.a2ml, Justfile, GOVERNANCE.md, MAINTAINERS.md, flake.nix, devcontainer.json |
-| `InvestigativeJournalist.jl` | One-line description | `A tool for X` | flake.nix |
-| `InvestigativeJournalist.jl` | Uppercase identifier (for Idris2 modules, C macros) | `MY_PROJECT` | ABI-FFI-README.md, src/abi/*.idr, ffi/zig/*.zig |
+| `InvestigativeJournalism.Jl` | Human-readable project name | `My Project` | SECURITY.md, CODE_OF_CONDUCT.md, TOPOLOGY.md, STATE.a2ml, Justfile, GOVERNANCE.md, MAINTAINERS.md, flake.nix, devcontainer.json |
+| `InvestigativeJournalism.jl` | One-line description | `A tool for X` | flake.nix |
+| `InvestigativeJournalism.jl` | Uppercase identifier (for Idris2 modules, C macros) | `MY_PROJECT` | ABI-FFI-README.md, src/abi/*.idr, ffi/zig/*.zig |
 | `{{project}}` | Lowercase identifier (for C symbols, filenames) | `my_project` | ABI-FFI-README.md, ffi/zig/*.zig |
-| `InvestigativeJournalist.jl` | Repository name (slug) | `my-project` | CONTRIBUTING.md, SECURITY.md, CODE_OF_CONDUCT.md, cliff.toml |
+| `InvestigativeJournalism.jl` | Repository name (slug) | `my-project` | CONTRIBUTING.md, SECURITY.md, CODE_OF_CONDUCT.md, cliff.toml |
 | `hyperpolymath` | GitHub/GitLab org or username | `my-org` | SPDX headers, CONTRIBUTING.md, SECURITY.md, GOVERNANCE.md, MAINTAINERS.md, CODEOWNERS, mirror.yml, cliff.toml |
 | `github.com` | Git forge domain | `github.com` | CONTRIBUTING.md |
 
@@ -90,7 +90,7 @@ sed -i "s/2026-03-16/$(date +%Y-%m-%d)/g" $(grep -rl '2026-03-16' .)
 | Placeholder | Description | Example | Files |
 |---|---|---|---|
 | `MPL-2.0` | License name | `MPL-2.0` | ABI-FFI-README.md |
-| `InvestigativeJournalist.jl` | One-line project description | `FFI bridges between languages` | STATE.a2ml |
+| `InvestigativeJournalism.jl` | One-line project description | `FFI bridges between languages` | STATE.a2ml |
 
 ### AI Manifest
 

@@ -25,4 +25,4 @@ This dev container uses `cgr.dev/chainguard/wolfi-base` with git, curl, bash, an
 
 == Customization
 
-Replace `InvestigativeJournalist.Jl` placeholders in both `devcontainer.json` and `Containerfile` with your actual project name. Run `just deps` to verify the environment after first launch.
+Replace `InvestigativeJournalism.Jl` placeholders in both `devcontainer.json` and `Containerfile` with your actual project name. Run `just deps` to verify the environment after first launch.

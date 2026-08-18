@@ -1,13 +1,13 @@
 # SPDX-License-Identifier: MPL-2.0
-# stapeln.toml — Layer-based container build for InvestigativeJournalist.jl
+# stapeln.toml — Layer-based container build for InvestigativeJournalism.jl
 #
 # stapeln builds containers as composable layers (German: "to stack").
 # Each layer is independently cacheable, verifiable, and signable.
 
 [metadata]
-name = "InvestigativeJournalist.jl"
+name = "InvestigativeJournalism.jl"
 version = "0.1.0"
-description = "InvestigativeJournalist.jl container service"
+description = "InvestigativeJournalism.jl container service"
 author = "Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>"
 license = "MPL-2.0"
 registry = "ghcr.io/hyperpolymath"
@@ -32,7 +32,7 @@ packages = []
 cache = true
 
 [layers.build]
-description = "InvestigativeJournalist.jl build"
+description = "InvestigativeJournalism.jl build"
 extends = "toolchain"
 commands = []
 
@@ -43,7 +43,7 @@ packages = ["ca-certificates", "curl"]
 copy-from = [
     { layer = "build", src = "/app/", dst = "/app/" },
 ]
-entrypoint = ["/app/InvestigativeJournalist.jl"]
+entrypoint = ["/app/InvestigativeJournalism.jl"]
 user = "nonroot"
 
 # ── Security ───────────────────────────────────────────────────

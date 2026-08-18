@@ -14,8 +14,8 @@ Get up and running in 60 seconds.
 
 [source,bash]
 ----
-git clone https://github.com/hyperpolymath/InvestigativeJournalist.jl
-cd InvestigativeJournalist.jl
+git clone https://github.com/hyperpolymath/InvestigativeJournalism.jl
+cd InvestigativeJournalism.jl
 just doctor    # check toolchain
 just heal      # auto-install missing tools
 ----
@@ -32,4 +32,4 @@ just help-me   # see common workflows
 
 * `just help-me` — common workflows
 * `just doctor` — diagnose toolchain issues
-* https://github.com/hyperpolymath/InvestigativeJournalist.jl/issues — report bugs
+* https://github.com/hyperpolymath/InvestigativeJournalism.jl/issues — report bugs

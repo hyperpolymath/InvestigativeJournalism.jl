@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: MPL-2.0
-# eclexiaiser manifest for InvestigativeJournalist.jl
+# eclexiaiser manifest for InvestigativeJournalism.jl
 
 [project]
-name = "InvestigativeJournalist.jl"
+name = "InvestigativeJournalism.jl"
 
 [[functions]]
 name = "audit"

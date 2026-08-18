@@ -6,7 +6,7 @@
 #
 # Placeholders — replace before first use:
 #   hyperpolymath — GitHub organization or username
-#   InvestigativeJournalist.jl  — GitHub repository name
+#   InvestigativeJournalism.jl  — GitHub repository name
 
 [changelog]
 # Changelog header
@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 # https://keats.github.io/tera/docs/#introduction
 body = """
 {%- macro remote_url() -%}
-  https://github.com/hyperpolymath/InvestigativeJournalist.jl
+  https://github.com/hyperpolymath/InvestigativeJournalism.jl
 {%- endmacro -%}
 
 {% if version -%}
@@ -57,7 +57,7 @@ body = """
 # Template for the changelog footer
 footer = """
 {%- macro remote_url() -%}
-  https://github.com/hyperpolymath/InvestigativeJournalist.jl
+  https://github.com/hyperpolymath/InvestigativeJournalism.jl
 {%- endmacro -%}
 
 {% for release in releases -%}

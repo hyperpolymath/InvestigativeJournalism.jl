@@ -15,8 +15,8 @@ Clone, build, test, contribute.
 
 [source,bash]
 ----
-git clone https://github.com/hyperpolymath/InvestigativeJournalist.jl
-cd InvestigativeJournalist.jl
+git clone https://github.com/hyperpolymath/InvestigativeJournalism.jl
+cd InvestigativeJournalism.jl
 just doctor    # verify toolchain
 just heal      # auto-install missing tools
 ----

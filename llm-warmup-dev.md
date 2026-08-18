@@ -2,9 +2,9 @@
 SPDX-License-Identifier: CC-BY-SA-4.0
 Copyright (c) Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
 -->
-# LLM Warmup — InvestigativeJournalist.jl (Developer)
+# LLM Warmup — InvestigativeJournalism.jl (Developer)
 
-## What is InvestigativeJournalist.jl?
+## What is InvestigativeJournalism.jl?
 See README.adoc for overview.
 
 ## Key Commands

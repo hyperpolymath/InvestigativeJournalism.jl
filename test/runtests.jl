@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: MPL-2.0
 using Test
-using InvestigativeJournalist
+using InvestigativeJournalism
 using Dates
 using DataFrames
 
-@testset "InvestigativeJournalist.jl" begin
+@testset "InvestigativeJournalism.jl" begin
 
     # -----------------------------------------------------------------------
     # Types
@@ -200,14 +200,14 @@ using DataFrames
     @testset "AudioProduction" begin
         @testset "PodcastScript construction" begin
             script = PodcastScript("Deep Dive Episode 1",
-                                   InvestigativeJournalist.AudioProduction.PodcastSegment[])
+                                   InvestigativeJournalism.AudioProduction.PodcastSegment[])
             @test script.title == "Deep Dive Episode 1"
             @test isempty(script.segments)
         end
 
         @testset "add_segment!" begin
             script = PodcastScript("Test Episode",
-                                   InvestigativeJournalist.AudioProduction.PodcastSegment[])
+                                   InvestigativeJournalism.AudioProduction.PodcastSegment[])
             add_segment!(script, "00:00", "Host", "Welcome to the show")
             @test length(script.segments) == 1
             @test script.segments[1].speaker == "Host"
@@ -222,7 +222,7 @@ using DataFrames
 
         @testset "generate_show_notes" begin
             script = PodcastScript("Notes Test",
-                                   InvestigativeJournalist.AudioProduction.PodcastSegment[])
+                                   InvestigativeJournalism.AudioProduction.PodcastSegment[])
             add_segment!(script, "00:00", "Alice", "Intro")
             add_segment!(script, "10:00", "Bob", "Key finding", :evidence1)
 

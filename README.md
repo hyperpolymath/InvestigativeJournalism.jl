@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: 2025-2026 Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
 -->
 
 [![Topology](https://img.shields.io/badge/Project-Topology-9558B2)](TOPOLOGY.md)
-[![80](https://img.shields.io/badge/Completion-80%25-green)](TOPOLOGY.md) [![OpenSSF Best Practices](https://img.shields.io/badge/OpenSSF-Best_Practices-green?logo=opensourcesecurity)](https://www.bestpractices.dev/en/projects/new?repo_url=https://github.com/hyperpolymath/InvestigativeJournalist.jl)
+[![80](https://img.shields.io/badge/Completion-80%25-green)](TOPOLOGY.md) [![OpenSSF Best Practices](https://img.shields.io/badge/OpenSSF-Best_Practices-green?logo=opensourcesecurity)](https://www.bestpractices.dev/en/projects/new?repo_url=https://github.com/hyperpolymath/InvestigativeJournalism.jl)
 [![License: PMPL-1.0](https://img.shields.io/badge/License-MPL--2.0-blue.svg)](https://github.com/hyperpolymath/palimpsest-license) <embed
 src="https://api.thegreenwebfoundation.org/greencheckimage/github.com"
 data-link="https://www.thegreenwebfoundation.org/green-web-check/?url=github.com" />
@@ -21,7 +21,7 @@ data-link="https://julialang.org/">Julia</a>
 
 # Overview
 
-InvestigativeJournalist.jl is a Julia toolkit for managing the
+InvestigativeJournalism.jl is a Julia toolkit for managing the
 end-to-end investigative reporting workflow. It provides high-integrity
 structures for ingesting diverse sources, extracting verifiable claims,
 and building a corroboration matrix that minimizes editorial and legal
@@ -47,7 +47,7 @@ risk.
 # Quick Start
 
 ```julia
-using InvestigativeJournalist
+using InvestigativeJournalism
 
 # Ingest a source document
 doc = ingest_source("docs/leaked_contract.pdf")

@@ -3,12 +3,12 @@
 # Converted from STATE.scm on 2026-03-15
 
 [metadata]
-project = "InvestigativeJournalist.jl"
+project = "InvestigativeJournalism.jl"
 version = "0.1.0"
 last-updated = "2026-03-15"
 status = "active"
 
 [project-context]
-name = "InvestigativeJournalist.jl"
+name = "InvestigativeJournalism.jl"
 completion-percentage = 80
 phase = "beta"

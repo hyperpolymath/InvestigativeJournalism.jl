@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: CC-BY-SA-4.0
 // Copyright (c) Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
-= InvestigativeJournalist.jl Roadmap
+= InvestigativeJournalism.jl Roadmap
 
 == v0.1.0 - Core Ingestion & Claims (Current)
 * [x] Basic source ingestion (PDF/Text) with SHA-256 hashing.

@@ -1,4 +1,4 @@
-using InvestigativeJournalist
+using InvestigativeJournalism
 using Dates
 
 # 1. Ingest a leaked document (Simulated)

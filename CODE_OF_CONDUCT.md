@@ -8,10 +8,10 @@ Copyright (c) Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
 ============================================================================
 TEMPLATE INSTRUCTIONS (delete this block before publishing)
 ============================================================================
-Replace all InvestigativeJournalist.jl values:
-  InvestigativeJournalist.Jl     - Your project name
+Replace all InvestigativeJournalism.jl values:
+  InvestigativeJournalism.Jl     - Your project name
   hyperpolymath            - GitHub/GitLab username or org
-  InvestigativeJournalist.jl             - Repository name
+  InvestigativeJournalism.jl             - Repository name
   {{CONDUCT_EMAIL}}    - Email for conduct reports
   {{CONDUCT_TEAM}}     - Name of conduct team/committee
   {{RESPONSE_TIME}}    - Initial response SLA (e.g., 48 hours)
@@ -26,7 +26,7 @@ Review and customise:
 
 ## Our Pledge
 
-We as members, contributors, and leaders pledge to make participation in InvestigativeJournalist.Jl a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, caste, colour, religion, or sexual identity and orientation.
+We as members, contributors, and leaders pledge to make participation in InvestigativeJournalism.Jl a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, caste, colour, religion, or sexual identity and orientation.
 
 We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
 
@@ -314,7 +314,7 @@ We thank these communities for their leadership in creating welcoming spaces.
 
 If you have questions about this Code of Conduct:
 
-- Open a [Discussion](https://github.com/hyperpolymath/InvestigativeJournalist.jl/discussions) (for general questions)
+- Open a [Discussion](https://github.com/hyperpolymath/InvestigativeJournalism.jl/discussions) (for general questions)
 - Email {{CONDUCT_EMAIL}} (for private questions)
 - Contact any maintainer directly
 

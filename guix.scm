@@ -1,13 +1,13 @@
 ;; SPDX-License-Identifier: MPL-2.0
 ;; Copyright (c) 2026 Jonathan D.A. Jewell (hyperpolymath) <j.d.a.jewell@open.ac.uk>
 ;;
-;; Guix package definition for InvestigativeJournalist.jl
+;; Guix package definition for InvestigativeJournalism.jl
 ;;
 ;; Usage:
 ;;   guix shell -D -f guix.scm    # Enter development shell
 ;;   guix build -f guix.scm       # Build package
 ;;
-;; TODO: Replace InvestigativeJournalist.jl and customize inputs for your language/stack.
+;; TODO: Replace InvestigativeJournalism.jl and customize inputs for your language/stack.
 ;; See: https://guix.gnu.org/manual/en/html_node/Defining-Packages.html
 
 (use-modules (guix packages)
@@ -18,7 +18,7 @@
              (gnu packages base))
 
 (package
-  (name "InvestigativeJournalist.jl")
+  (name "InvestigativeJournalism.jl")
   (version "0.1.0")
   (source (local-file "." "source"
                        #:recursive? #t
@@ -63,8 +63,8 @@
    (list
     ;; TODO: Add runtime dependencies
     ))
-  (home-page "https://github.com/hyperpolymath/InvestigativeJournalist.jl")
-  (synopsis "InvestigativeJournalist.jl")
+  (home-page "https://github.com/hyperpolymath/InvestigativeJournalism.jl")
+  (synopsis "InvestigativeJournalism.jl")
   (description "RSR-compliant project. See README.adoc for details.")
   (license (list
             ;; MPL-2.0 extends MPL-2.0

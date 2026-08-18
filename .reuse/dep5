@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: {{PROJECT_NAME}}
 Upstream-Contact: {{AUTHOR}} <{{AUTHOR_EMAIL}}>
-Source: https://github.com/hyperpolymath/InvestigativeJournalist.jl
+Source: https://github.com/hyperpolymath/InvestigativeJournalism.jl
 
 # Default: all files are MPL-2.0
 Files: *

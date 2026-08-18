@@ -3,7 +3,7 @@
 # Converted from ECOSYSTEM.scm on 2026-03-15
 
 [metadata]
-project = "InvestigativeJournalist.jl"
+project = "InvestigativeJournalism.jl"
 ecosystem = "hyperpolymath"
 
 [position]

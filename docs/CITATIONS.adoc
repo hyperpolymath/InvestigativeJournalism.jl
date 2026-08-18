@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: CC-BY-SA-4.0
 // Copyright (c) Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
-= InvestigativeJournalist.jl - Citation Guide
+= InvestigativeJournalism.jl - Citation Guide
 :toc:
 
 == BibTeX
@@ -9,28 +9,28 @@
 ----
 @software{investigativejournalist_jl_2026,
   author = {Jewell, Jonathan D.A.},
-  title = {InvestigativeJournalist.jl},
+  title = {InvestigativeJournalism.jl},
   year = {2026},
-  url = {https://github.com/hyperpolymath/InvestigativeJournalist.jl},
+  url = {https://github.com/hyperpolymath/InvestigativeJournalism.jl},
   license = {MPL-2.0}
 }
 ----
 
 == Harvard Style
 
-Jewell, J.D.A. (2026) _InvestigativeJournalist.jl_ [Computer software]. Available at: https://github.com/hyperpolymath/InvestigativeJournalist.jl
+Jewell, J.D.A. (2026) _InvestigativeJournalism.jl_ [Computer software]. Available at: https://github.com/hyperpolymath/InvestigativeJournalism.jl
 
 == OSCOLA
 
-Jonathan D.A. Jewell, 'InvestigativeJournalist.jl' (2026) <https://github.com/hyperpolymath/InvestigativeJournalist.jl>
+Jonathan D.A. Jewell, 'InvestigativeJournalism.jl' (2026) <https://github.com/hyperpolymath/InvestigativeJournalism.jl>
 
 == MLA
 
-Jewell, Jonathan D.A. "InvestigativeJournalist.jl." 2026, github.com/hyperpolymath/InvestigativeJournalist.jl.
+Jewell, Jonathan D.A. "InvestigativeJournalism.jl." 2026, github.com/hyperpolymath/InvestigativeJournalism.jl.
 
 == APA 7
 
-Jewell, J. D. A. (2026). _InvestigativeJournalist.jl_ [Computer software]. GitHub. https://github.com/hyperpolymath/InvestigativeJournalist.jl
+Jewell, J. D. A. (2026). _InvestigativeJournalism.jl_ [Computer software]. GitHub. https://github.com/hyperpolymath/InvestigativeJournalism.jl
 
 == See Also
 

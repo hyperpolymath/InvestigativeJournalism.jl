@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: CC-BY-SA-4.0
 // Copyright (c) Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
-= InvestigativeJournalist.jl — Show Me The Receipts
+= InvestigativeJournalism.jl — Show Me The Receipts
 :toc:
 :toclevels: 3
 :icons: font
@@ -12,7 +12,7 @@ honest caveats, and enough detail for an external reviewer to orient themselves.
 
 === Claim 1: "Covers the full investigative pipeline from document ingestion through publication"
 
-*True.* `src/InvestigativeJournalist.jl` includes 18 sub-modules spanning the
+*True.* `src/InvestigativeJournalism.jl` includes 18 sub-modules spanning the
 complete workflow:
 
 . *Ingestion:* `ingest.jl` (`ingest_source`), `parsers.jl` (`parse_contract`,
@@ -67,10 +67,10 @@ Users requiring legal-grade signing should use GnuPG tooling externally.
 
 == How It Works
 
-`src/InvestigativeJournalist.jl` is a module aggregator: it includes 18
+`src/InvestigativeJournalism.jl` is a module aggregator: it includes 18
 sub-module files and re-exports from all 18 using-declarations. The sub-module
 architecture isolates concerns — callers needing only network intelligence can
-`using InvestigativeJournalist.NetworkIntelligence` without loading the full
+`using InvestigativeJournalism.NetworkIntelligence` without loading the full
 package.
 
 The primary data types are `SourceDoc`, `Claim`, `EvidenceLink`, `Entity`,
@@ -107,11 +107,11 @@ queryable store.
 
 [cols="2,3"]
 |===
-| Where | How InvestigativeJournalist is relevant
+| Where | How InvestigativeJournalism is relevant
 
 | https://github.com/hyperpolymath/developer-ecosystem[developer-ecosystem]
   `julia-ecosystem/`
-| InvestigativeJournalist is the most complex multi-module Julia package in
+| InvestigativeJournalism is the most complex multi-module Julia package in
   the account and serves as a reference for the sub-module include/using
   aggregator pattern.
 
@@ -130,7 +130,7 @@ queryable store.
   the mandatory VeriSimDB policy.
 
 | https://github.com/hyperpolymath/hypatia[hypatia]
-| Hypatia CI scans InvestigativeJournalist.jl for SPDX compliance and RSR
+| Hypatia CI scans InvestigativeJournalism.jl for SPDX compliance and RSR
   antipatterns on every push.
 |===
 
@@ -140,7 +140,7 @@ queryable store.
 |===
 | Path | What is There
 
-| `src/InvestigativeJournalist.jl`
+| `src/InvestigativeJournalism.jl`
 | Root module aggregator. Includes 18 sub-modules and re-exports 40+ public
   names covering the full investigative pipeline.
 
@@ -220,7 +220,7 @@ queryable store.
   network graph shortest-path at varying graph sizes.
 
 | `Project.toml`
-| Name `InvestigativeJournalist`, v0.1.0, MPL-2.0; deps include `DataFrames`,
+| Name `InvestigativeJournalism`, v0.1.0, MPL-2.0; deps include `DataFrames`,
   `JSON3`, `SQLite`, `Dates`, `SHA`, `HTTP`, `URIs`, `TextAnalysis`, `Images`,
   `Graphs`, `MetaGraphsNext`, `Gumbo`, `Cascadia`.
 
