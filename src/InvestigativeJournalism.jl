@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: MPL-2.0
 """
-    InvestigativeJournalist
+    InvestigativeJournalism
 
 Investigative journalism toolkit for OSINT, data analysis, source management, and
 storytelling. Covers the full investigative pipeline from document ingestion and
@@ -15,13 +15,13 @@ claim extraction through network intelligence, media forensics, and publication.
 
 # Example
 ```julia
-using InvestigativeJournalist
+using InvestigativeJournalism
 doc = ingest_source("leaked_report.pdf")
 claims = extract_claim(doc)
 report = corroboration_report(claims)
 ```
 """
-module InvestigativeJournalist
+module InvestigativeJournalism
 
 include("types.jl")
 include("ingest.jl")
@@ -79,4 +79,4 @@ export model_instability_context, test_causal_pathway, assess_black_swan
 export isolate_signal, denoise_audio, enhance_clarity
 export register_investigation_hexad, vql_query
 
-end # module InvestigativeJournalist
+end # module InvestigativeJournalism
