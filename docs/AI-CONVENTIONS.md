@@ -50,7 +50,7 @@ NEUROSYM.a2ml, or PLAYBOOK.a2ml in the repository root.
 
 | Banned              | Use Instead        |
 |---------------------|--------------------|
-| TypeScript          | ReScript           |
+| TypeScript          | AffineScript           |
 | Node.js / npm / bun | Deno               |
 | Go                  | Rust               |
 | Python              | Julia / Rust       |

@@ -44,8 +44,8 @@ updates:
     schedule:
       interval: "weekly"
 
-  # Nix flakes
-  - package-ecosystem: "nix"
+  # Guix flakes
+  - package-ecosystem: "guix"
     directory: "/"
     schedule:
       interval: "weekly"
