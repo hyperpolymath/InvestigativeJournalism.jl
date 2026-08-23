@@ -1,71 +1,28 @@
 ;; SPDX-License-Identifier: MPL-2.0
-;; Copyright (c) 2026 Jonathan D.A. Jewell (hyperpolymath) <j.d.a.jewell@open.ac.uk>
-;;
-;; Guix package definition for InvestigativeJournalism.jl
-;;
-;; Usage:
-;;   guix shell -D -f guix.scm    # Enter development shell
-;;   guix build -f guix.scm       # Build package
-;;
-;; TODO: Replace InvestigativeJournalism.jl and customize inputs for your language/stack.
-;; See: https://guix.gnu.org/manual/en/html_node/Defining-Packages.html
+;; Guix development environment.
+;; Usage: guix shell -D -f guix.scm
 
 (use-modules (guix packages)
-             (guix gexp)
-             (guix git-download)
              (guix build-system gnu)
              (guix licenses)
-             (gnu packages base))
+             (gnu packages base)
+             (gnu packages bash)
+             (gnu packages base)
+             (gnu packages java)
+             (gnu packages rust)
+             (gnu packages cmake)
+             (gnu packages zig)
+             (gnu packages golang)
+             (gnu packages node)
+             (gnu packages python))
 
 (package
-  (name "InvestigativeJournalism.jl")
+  (name "investigativejournalism.jl")
   (version "0.1.0")
-  (source (local-file "." "source"
-                       #:recursive? #t
-                       #:select? (lambda (file stat)
-                                   (not (string-contains file ".git")))))
+  (source #f)
   (build-system gnu-build-system)
-  (arguments
-   '(#:phases
-     (modify-phases %standard-phases
-       ;; TODO: Customize build phases for your project
-       ;; Examples for common stacks:
-       ;;
-       ;; Rust:
-       ;;   (replace 'build (lambda _ (invoke "cargo" "build" "--release")))
-       ;;   (replace 'check (lambda _ (invoke "cargo" "test")))
-       ;;
-       ;; Elixir:
-       ;;   (replace 'build (lambda _ (invoke "mix" "compile")))
-       ;;   (replace 'check (lambda _ (invoke "mix" "test")))
-       ;;
-       ;; Zig:
-       ;;   (replace 'build (lambda _ (invoke "zig" "build")))
-       ;;   (replace 'check (lambda _ (invoke "zig" "build" "test")))
-       (delete 'configure)
-       (delete 'build)
-       (delete 'check)
-       (replace 'install
-         (lambda* (#:key outputs #:allow-other-keys)
-           (let ((out (assoc-ref outputs "out")))
-             (mkdir-p (string-append out "/share/doc"))
-             (copy-file "README.adoc"
-                        (string-append out "/share/doc/README.adoc"))))))))
-  (native-inputs
-   (list
-    ;; TODO: Add build-time dependencies
-    ;; Examples:
-    ;;   rust (gnu packages rust)
-    ;;   elixir (gnu packages elixir)
-    ;;   zig (gnu packages zig)
-    ))
-  (inputs
-   (list
-    ;; TODO: Add runtime dependencies
-    ))
-  (home-page "https://github.com/hyperpolymath/InvestigativeJournalism.jl")
-  (synopsis "InvestigativeJournalism.jl")
-  (description "RSR-compliant project. See README.adoc for details.")
-  (license (list
-            ;; MPL-2.0 extends MPL-2.0
-            mpl2.0)))
+  (inputs (list coreutils bash  make openjdk rust cmake zig go node python))
+  (synopsis "investigativejournalism.jl")
+  (description "investigativejournalism.jl — part of the hyperpolymath ecosystem.")
+  (home-page "https://github.com/hyperpolymath/investigativejournalism.jl")
+  (license ((@@ (guix licenses) license) "MPL-2.0" "https://github.com/hyperpolymath/palimpsest-license")))
