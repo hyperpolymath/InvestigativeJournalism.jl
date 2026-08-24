@@ -1,15 +1,8 @@
-<!--
-SPDX-License-Identifier: CC-BY-SA-4.0
-Copyright (c) Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
--->
-<!-- TOPOLOGY.md — Project architecture map and completion dashboard -->
-<!-- Last updated: 2026-02-19 -->
+== InvestigativeJournalism.jl — Project Topology
 
-# InvestigativeJournalism.jl — Project Topology
+=== System Architecture
 
-## System Architecture
-
-```
+....
                         ┌─────────────────────────────────────────┐
                         │          EXTERNALS / SOURCES            │
                         ├─────────────────────────────────────────┤
@@ -46,11 +39,11 @@ Copyright (c) Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
                         │  .github/workflows/ (RSR Gate)          │
                         │  Project.toml                           │
                         └─────────────────────────────────────────┘
-```
+....
 
-## Completion Dashboard
+=== Completion Dashboard
 
-```
+....
 COMPONENT                          STATUS              NOTES
 ─────────────────────────────────  ──────────────────  ─────────────────────────────────
 CORE WORKFLOW
@@ -75,26 +68,27 @@ INFRASTRUCTURE
 
 ─────────────────────────────────────────────────────────────────────────────
 OVERALL:                            ████████░░  ~80%   Functional Prototype
-```
+....
 
-## Key Dependencies
+=== Key Dependencies
 
-```
+....
 Ingest & Hash ──────► Claim Extraction ──────► Corroboration Matrix
                                                    │
 Timeline Analysis ◀─── Network Analysis ◀──────────┘
       │
 Story Architect ──────► Publication Pack ─────► COMPLETE
-```
+....
 
-## Update Protocol
+=== Update Protocol
 
 This file is maintained by both humans and AI agents. When updating:
 
-1. **After completing a component**: Change its bar and percentage
-2. **After adding a component**: Add a new row in the appropriate section
-3. **After architectural changes**: Update the ASCII diagram
-4. **Date**: Update the `Last updated` comment at the top of this file
+[arabic]
+. *After completing a component*: Change its bar and percentage
+. *After adding a component*: Add a new row in the appropriate section
+. *After architectural changes*: Update the ASCII diagram
+. *Date*: Update the `+Last updated+` comment at the top of this file
 
-Progress bars use: `█` (filled) and `░` (empty), 10 characters wide.
-Percentages: 0%, 10%, 20%, ... 100% (in 10% increments).
+Progress bars use: `+█+` (filled) and `+░+` (empty), 10 characters wide.
+Percentages: 0%, 10%, 20%, … 100% (in 10% increments).
