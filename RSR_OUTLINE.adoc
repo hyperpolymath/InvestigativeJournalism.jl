@@ -206,8 +206,8 @@ project/
 
 === Language Tiers
 
-* **Tier 1** (Gold): Rust, Elixir, Zig, Ada, Haskell, ReScript, Gleam
-* **Tier 2** (Silver): Nickel, Guile Scheme, Nix, Idris2, OCaml
+* **Tier 1** (Gold): Rust, Elixir, Zig, Ada, Haskell, AffineScript, Gleam
+* **Tier 2** (Silver): Nickel, Guile Scheme, Guix, Idris2, OCaml
 * **Infrastructure**: Guix channels, derivations, Julia batch scripts
 
 === Required Files
@@ -221,12 +221,12 @@ project/
 * `.well-known/security.txt`
 * `.well-known/ai.txt`
 * `.well-known/humans.txt`
-* `guix.scm` OR `flake.nix`
+* `guix.scm` OR `flake.guix`
 
 === Prohibited
 
 * Python outside `salt/` directory
-* TypeScript/JavaScript (use ReScript)
+* TypeScript/JavaScript (use AffineScript)
 * CUE (use Guile/Nickel)
 * `Dockerfile` (use `Containerfile`)
 * npm, Bun, pnpm, yarn (use Deno)

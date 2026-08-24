@@ -1,162 +1,177 @@
-// SPDX-License-Identifier: CC-BY-SA-4.0
-// SPDX-FileCopyrightText: 2026 Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
-= Governance Model
-:toc: preamble
+== Project Governance
 
-This document describes the governance model for this repository.
+This document describes the governance model for
+*InvestigativeJournalism.Jl*.
 
-== Overview
+'''''
 
-This repository follows a **Sole Maintainer Governance Model**:
+=== Project Governance Model
 
-* Single maintainer (@hyperpolymath) has full authority over the project
-* All contributions are welcome and reviewed by the maintainer
-* Decisions are made transparently through GitHub issues and discussions
-* The project adheres to the hyperpolymath estate policies where applicable
+InvestigativeJournalism.Jl follows a *Benevolent Dictator For Life
+(BDFL)* governance model. This model is well-suited for solo maintainers
+and small project teams where rapid, consistent decision-making is more
+valuable than formal consensus processes.
 
-== Core Principles
+The BDFL has final authority on all project decisions, including
+technical direction, release schedules, contributor access, and
+community standards.
 
-[cols="1,2"]
-|===
-| Principle | Description
+____
+*Transition clause:* When the core team exceeds three active
+maintainers, this project should transition to a *consensus-based
+governance model* with documented voting procedures. That transition
+should itself be recorded as an Architecture Decision Record (ADR) in
+`+docs/decisions/+`.
+____
 
-| **Benevolent Dictatorship** | Maintainer has final decision authority but seeks community input
+'''''
 
-| **Meritocracy** | Contributions are judged on technical merit, not contributor identity
+=== Decision Making
 
-| **Transparency** | All significant decisions are documented publicly
+==== Day-to-day decisions
 
-| **Consensus-Seeking** | Maintainer prefers consensus but will decide when necessary
+* The BDFL makes final decisions on all matters.
+* Routine decisions (bug fixes, dependency updates, minor improvements)
+may be made by any maintainer with commit access.
+* Maintainers are expected to use good judgement and seek input on
+non-trivial changes.
 
-| **Open Contribution** | Anyone can contribute via fork and pull request
+==== Proposing changes
 
-|===
+* Contributors can propose changes by opening issues or pull requests.
+* Significant changes (new features, breaking changes, architectural
+shifts) should be discussed in an issue before implementation begins.
+* The BDFL will provide a clear accept/reject decision with reasoning.
 
-== Roles and Permissions
+==== Architecture Decision Records (ADRs)
 
-[cols="1,2,2"]
-|===
-| Role | Permissions | Assignment
+* Significant technical decisions are documented as ADRs in
+`+docs/decisions/+`.
+* ADR statuses: `+proposed+`, `+accepted+`, `+deprecated+`,
+`+superseded+`, `+rejected+`.
+* ADRs provide a historical record of why decisions were made and what
+alternatives were considered.
+* See `+.machine_readable/META.a2ml+` for the machine-readable ADR
+index.
 
-| **Maintainer** | Write access, merge rights, admin | @hyperpolymath
-| **Contributors** | Read access, fork, submit PRs | All GitHub users
-| **Users** | Use the software, report issues | All GitHub users
+'''''
 
-|===
+=== Roles
 
-== Decision Making Framework
+==== BDFL (Benevolent Dictator For Life)
 
-=== Routine Decisions
+* The project creator and ultimate decision-maker.
+* Sets the project’s technical direction and long-term vision.
+* Has final say on all matters, including maintainer appointments and
+removals.
+* Responsible for ensuring the project adheres to RSR standards.
 
-* Bug fixes
-* Documentation improvements
-* Minor feature additions
-* Dependency updates
+==== Maintainer
 
-**Process**: Maintainer reviews and merges PRs that meet quality standards.
+* Has commit access to the repository.
+* Reviews and merges pull requests.
+* Triages issues and manages releases.
+* Upholds code quality, security standards, and the Code of Conduct.
+* Listed in MAINTAINERS.md.
 
-=== Significant Changes
+==== Contributor
 
-* New major features
-* API changes
-* Architecture modifications
-* Breaking changes
+* Anyone who submits pull requests, opens issues, or participates in
+discussions.
+* Does not have direct commit access.
+* Contributions are reviewed by maintainers before merging.
+* All contributors must follow the link:CODE_OF_CONDUCT.md[Code of
+Conduct].
 
-**Process**:
-. Open issue describing the change
-. Discuss with community (minimum 72 hours)
-. Maintainer makes final decision
-. Document rationale in issue/PR
+==== Bot
 
-=== Structural Decisions
+* Automated agents managed via your bot orchestration system.
+* Perform automated code review, security scanning, dependency updates,
+and standards enforcement.
+* Bot actions are subject to the same quality and review standards as
+human contributions.
+* Configure your bots in `+.machine_readable/bot_directives/+`.
 
-* Repository purpose/renaming
-* License changes
-* Ownership transfer
-* Deprecation/archival
+'''''
 
-**Process**: 
-. Extended discussion (minimum 1 week)
-. Maintainer makes final decision
-. Document in CHANGELOG and governance docs
+=== Becoming a Maintainer
 
-== Contribution Lifecycle
+A contributor may be nominated to become a maintainer when they
+demonstrate:
 
-[cols="1,2"]
-|===
-| Stage | Process
+[arabic]
+. *Sustained quality contributions* – a track record of well-crafted
+pull requests that follow project conventions and require minimal
+revision.
+. *Understanding of RSR standards* – familiarity with the Repository
+Structure Requirements, security policies, and CI/CD workflows used
+across the project.
+. *Constructive participation* – helpful issue triage, thoughtful code
+review comments, and mentoring of other contributors.
+. *Reliability* – consistent engagement over a meaningful period
+(typically 3+ months of active contribution).
 
-| **Ideation** | Open issue, discuss feasibility
+==== Process
 
-| **Development** | Fork, implement, test thoroughly
+[arabic]
+. An existing maintainer nominates the candidate by opening a private
+discussion with the BDFL.
+. The BDFL reviews the candidate’s contribution history and community
+interactions.
+. The BDFL approves or declines the nomination, with reasoning provided
+to the nominator.
+. If approved, the new maintainer is added to MAINTAINERS.md and granted
+appropriate repository access.
 
-| **Review** | Submit PR, maintainer reviews within 7 days
+'''''
 
-| **Merge** | Maintainer merges or requests changes
+=== Removing a Maintainer
 
-| **Release** | Maintainer publishes according to project conventions
+A maintainer may be removed under the following circumstances:
 
-|===
+* *Inactivity*: No meaningful contributions or reviews for 12 or more
+consecutive months. The maintainer will be contacted before removal and
+offered the option to move to emeritus status voluntarily.
+* *Code of Conduct violation*: Behaviour that violates the
+link:CODE_OF_CONDUCT.md[Code of Conduct], as determined through the
+enforcement process described therein.
+* *BDFL discretion*: The BDFL may remove a maintainer for other reasons
+(e.g., repeated disregard for project standards, loss of trust).
+Reasoning will be documented privately.
 
-== Conflict Resolution
+Removed maintainers are moved to the Emeritus section of MAINTAINERS.md
+unless removal was due to a serious Code of Conduct violation.
 
-In case of disagreements:
+'''''
 
-. Discuss in the relevant GitHub issue or PR
-. Provide technical justification for positions
-. Maintainer mediates and makes final decision
-. Decision is documented and can be revisited later
+=== Code of Conduct
 
-== Project Policies
+All participants in this project are expected to follow the
+link:CODE_OF_CONDUCT.md[Code of Conduct]. The Code of Conduct applies to
+all project spaces, including issues, pull requests, discussions, and
+any forum where the project is represented.
 
-This repository adheres to hyperpolymath estate-wide policies:
+Enforcement of the Code of Conduct is described in that document. The
+BDFL serves as the final arbiter in conduct disputes.
 
-* **License**: MPL-2.0 for code, CC-BY-SA-4.0 for prose (per standards/LICENCE-POLICY.adoc)
-* **Code of Conduct**: Follows hyperpolymath CODE_OF_CONDUCT.md
-* **Security**: Follows hyperpolymath SECURITY.md
-* **Contributing**: Follows hyperpolymath CONTRIBUTING.adoc conventions
+'''''
 
-== Repository-Specific Conventions
+=== Amendments
 
-[cols="1,2"]
-|===
-| Convention | Description
+This governance document may be amended by the BDFL at any time. All
+amendments will be:
 
-| **Signing** | All commits must be signed (SSH or GPG)
+[arabic]
+. Documented as an ADR in `+docs/decisions/+` explaining the rationale
+for the change.
+. Committed to the repository with a clear commit message.
+. Communicated to existing maintainers and contributors via the
+project’s usual channels.
 
-| **SPDX Headers** | All source files must have SPDX license identifiers
+Substantive changes (e.g., changing the governance model itself) should
+be discussed with the community before adoption, even though the BDFL
+retains final authority.
 
-| **Contractiles** | Mustfile, Trustfile, Intendfile, Adjustfile in root
+'''''
 
-| **Machine Readable** | META.a2ml in .machine_readable/6a2/
-
-| **CI/CD** | GitHub Actions workflows in .github/workflows/
-
-|===
-
-== Governance Evolution
-
-As the project grows, this governance model may evolve:
-
-* **Adding Co-Maintainers**: When contribution volume warrants it
-* **Forming a Team**: For complex multi-maintainer projects
-* **Adopting TPCF**: For large, multi-repository projects (see rhodium-standard-repositories)
-
-Changes to this document require the same process as Significant Changes above.
-
-== See Also
-
-* link:MAINTAINERS.adoc[Maintainers]
-* link:CODE_OF_CONDUCT.md[Code of Conduct]
-* link:CONTRIBUTING.adoc[Contributing Guide]
-* link:https://github.com/hyperpolymath/standards/blob/main/LICENCE-POLICY.adoc[Estate License Policy]
-* link:https://github.com/hyperpolymath/standards[rhodium-standard-repositories (TPCF)]
-
-== Changelog
-
-[cols="1,1,1"]
-|===
-| Date | Change | By
-
-| 2026-06-07 | Initial governance model established | @hyperpolymath
-|===
+Copyright (c) 2026 hyperpolymath. Licensed under MPL-2.0.
