@@ -555,11 +555,11 @@ state-phase:
 
 # Enter Guix development shell (primary)
 guix-shell:
-    guix shell -D -f guix.scm
+    guix shell -D -f build/guix.scm
 
 # Build with Guix
 guix-build:
-    guix build -f guix.scm
+    guix build -f build/guix.scm
 
 # Enter Guix development shell (fallback)
 guix-shell:
