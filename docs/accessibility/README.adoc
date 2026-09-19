@@ -244,7 +244,7 @@ Burble is committed to:
 * Supporting screen readers and other assistive technologies
 * Continuous improvement based on user feedback
 
-We welcome contributions to improve accessibility. See our link:../CONTRIBUTING.adoc[Contributing Guide] for details.
+We welcome contributions to improve accessibility. See our link:../../.github/CONTRIBUTING.md[Contributing Guide] for details.
 
 == Related Documents
 
