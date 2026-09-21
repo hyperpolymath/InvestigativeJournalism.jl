@@ -34,7 +34,7 @@ jobs:
           COUNT=$(find . -type f \( -name '*.a2ml' -o -name '*.deed' \) -not -path './.git/*' | wc -l)
           echo "count=$COUNT" >> "$GITHUB_OUTPUT"
           if [ "$COUNT" -eq 0 ]; then
-            echo "::warning::No .deed manifest files found. Every RSR repo should have 0-AI-MANIFEST.deed (.a2ml is legacy and no longer authored)"
+            echo "::warning::No .deed manifest files found. Every RSR repo needs a repo-deed (`<repo>_chora.deed`) per standards#837 (.a2ml is legacy and no longer authored)"
           fi
 
       - name: Validate DEED manifests
@@ -51,7 +51,7 @@ jobs:
             cat <<'EOF' >> "$GITHUB_STEP_SUMMARY"
           ## DEED Manifest Validation
 
-          :warning: **No manifest found.** Every RSR-compliant repo should have at least `0-AI-MANIFEST.deed`. (`.a2ml` still validates as legacy but is no longer authored.)
+          :warning: **No manifest found.** Every RSR-compliant repo requires a repo-deed `<repo>_chora.deed` (standards#837). (`.a2ml` still validates as legacy but is no longer authored.)
 
           Copy one from [rsr-template-repo](https://github.com/hyperpolymath/rsr-template-repo).
           EOF
@@ -373,7 +373,7 @@ jobs:
 
           | Tool/Format | Status | Notes |
           |-------------|--------|-------|
-          | DEED manifest (0-AI-MANIFEST.deed) | ${A2ML_STATUS} | Required for all RSR repos |
+          | DEED repo-deed (`<repo>_chora.deed`) | ${A2ML_STATUS} | Required for all RSR repos |
           | K9 contracts | ${K9_STATUS} | Required for repos with config files |
           | .editorconfig | ${EC_STATUS} | Required for all repos |
           | Groove endpoint | ${GROOVE_STATUS} | Required for service repos |
