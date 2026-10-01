@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 type: software
 title: "InvestigativeJournalism.jl"
-abstract: "Julia package: InvestigativeJournalist"
+abstract: "Julia package: InvestigativeJournalism"
 authors:
   - family-names: "Jewell"
     given-names: "Jonathan D.A."
