@@ -40,8 +40,8 @@ Prints an ASCII 'git-style' branching timeline to the console.
 function visualize_git_timeline()
     # In a real implementation, this would use a graph renderer
     println("MASTER:  *---*---*---*")
-    println("LEAK_V1:      \_*___*")
-    println("ALT_HIST:          \_*")
+    println("LEAK_V1:      \\_*___*")
+    println("ALT_HIST:          \\_*")
 end
 
 end # module
