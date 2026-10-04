@@ -7,3 +7,40 @@ Changelog], and this project adheres to
 https://semver.org/spec/v2.0.0.html[Semantic Versioning].
 
 === [Unreleased]
+
+==== Fixed
+
+* The package could not be loaded at all. `src/intelligence/string_board.jl`
+  `using`s `Luxor` (for `Point` and the `Drawing`/`background`/`line`/`rect`
+  rendering calls in `render_wall`), but `Luxor` was missing from `[deps]`, so
+  `using InvestigativeJournalism` — and therefore every CI test job — failed
+  with an undeclared-dependency error before a single test ran. `Luxor` is now
+  declared, with a compat entry, matching the sibling `JuliaKids.jl` and
+  `PRComms.jl` packages.
+* `src/intelligence/forensics.jl` shadowed `Statistics.var`/`std` with a
+  vector-only local definition, so `detect_ai_artifacts` raised a
+  `MethodError` when it estimated sensor noise from a 4x4 block matrix. The
+  module now uses `Statistics` directly.
+* `build_story_structure` had a method for `Longform` only; the `NewsBulletin`
+  and `Thread` templates (the narrative structures the ROADMAP claims for
+  v1.2.0) now return their own non-empty structure lists.
+* The media-forensics tests ran the analysers against `/tmp/photo.jpg` and
+  `/tmp/suspect_image.png`, which nothing ever created, so both threw
+  `ArgumentError` instead of exercising the code. Tests now write a real
+  embedded PNG fixture to a temp directory and, separately, pin the intended
+  "missing file is rejected, not scored" behaviour.
+
+==== Changed
+
+* CI: the test job's `timeout-minutes` is 45 rather than 15. The job installs
+  and precompiles the entire dependency closure before it runs a test; on a
+  cold cache that exceeds 15 minutes on the 1.11 legs, which were being
+  cancelled mid-install without ever measuring anything.
+
+==== Removed
+
+* `SQLite`, `URIs`, `Gumbo`, `Cascadia` and `DuckDB` from `[deps]`/`[compat]`.
+  No file under `src/`, `test/`, `benches/`, `examples/`, `ffi/` or `docs/`
+  referenced any of them; they were declared packages that every CI job paid
+  to download and precompile. Re-add each one with its feature.
+

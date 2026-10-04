@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: MPL-2.0
 using Test
+using Base64
 using InvestigativeJournalism
 using Dates
 using DataFrames
@@ -429,19 +430,50 @@ using DataFrames
     # MediaForensics
     # -----------------------------------------------------------------------
     @testset "MediaForensics" begin
+        # Both analysers read a real file: they sniff magic bytes, walk JPEG
+        # markers / PNG chunks and (for detect_ai_artifacts) decode the image.
+        # The fixture below is a valid 8x8 RGB PNG (IHDR/IDAT/IEND with correct
+        # CRCs) embedded as base64, so the test needs no image *writer* and
+        # cannot drift with the installed codecs; it is written to a temp dir
+        # instead of assuming that /tmp/photo.jpg happens to exist.
+        fixturedir = mktempdir()
+        fixture_b64 = """
+            iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAA00lEQVR42gHIADf/AKVNyhglMLsdbRMs3tYjey7ZHj9yH8sZ
+            cQAXRJTWSTydXDRgvjEgHmn+2qDu6LmZf1wAfCmZ/a/lkyU81lSvTfrXFCegrrP+6SMvAIryIR+e5JHFsQvstVY7/B5vk0J+
+            y8j+KQBV5c2ORtyO1LfCdk0qWk12dwb4XYaQAkoA1r2jQBvpyMvMyTX2zR9hImrhUziuGjQAAE0zug0kasBMgbG68j47+e71
+            958rSTSvhwD1UgtpuUsNmC6Fu1W2cqhyY3rNdGb8tg6f2V+Mn7fMSwAAAABJRU5ErkJggg==
+            """
+        photo_path = joinpath(fixturedir, "photo.png")
+        suspect_path = joinpath(fixturedir, "suspect_image.png")
+        fixture_bytes = base64decode(replace(fixture_b64, r"\s" => ""))
+        write(photo_path, fixture_bytes)
+        write(suspect_path, fixture_bytes)
+
         @testset "verify_image_integrity" begin
-            result = verify_image_integrity("/tmp/photo.jpg")
+            result = verify_image_integrity(photo_path)
             @test hasproperty(result, :has_metadata) || haskey(result, :has_metadata)
             @test hasproperty(result, :tamper_probability) || haskey(result, :tamper_probability)
             @test result.tamper_probability isa Float64
+            @test 0.0 <= result.tamper_probability <= 1.0
+            @test result.format == :png
+            @test result.findings isa Vector{String}
         end
 
         @testset "detect_ai_artifacts" begin
-            result = detect_ai_artifacts("/tmp/suspect_image.png")
+            result = detect_ai_artifacts(suspect_path)
             @test hasproperty(result, :is_synthetic_probability)
             @test hasproperty(result, :confidence)
             @test result.is_synthetic_probability isa Float64
             @test result.confidence isa Float64
+            @test 0.0 <= result.is_synthetic_probability <= 1.0
+            @test 0.0 <= result.confidence <= 1.0
+            @test result.indicators isa Vector{String}
+        end
+
+        @testset "missing file is rejected, not scored" begin
+            absent = joinpath(fixturedir, "does_not_exist.png")
+            @test_throws ArgumentError verify_image_integrity(absent)
+            @test_throws ArgumentError detect_ai_artifacts(absent)
         end
     end
 

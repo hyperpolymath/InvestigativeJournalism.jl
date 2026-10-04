@@ -220,9 +220,12 @@ queryable store.
   network graph shortest-path at varying graph sizes.
 
 | `Project.toml`
-| Name `InvestigativeJournalism`, v0.1.0, MPL-2.0; deps include `DataFrames`,
-  `JSON3`, `SQLite`, `Dates`, `SHA`, `HTTP`, `URIs`, `TextAnalysis`, `Images`,
-  `Graphs`, `MetaGraphsNext`, `Gumbo`, `Cascadia`.
+| Name `InvestigativeJournalism`, v0.1.0, MPL-2.0; deps: `DataFrames`,
+  `JSON3`, `Dates`, `SHA`, `Statistics`, `HTTP`, `TextAnalysis`, `Images`,
+  `Luxor` (CrazyWall rendering), `Graphs`, `MetaGraphsNext`,
+  `StringDistances`, `Cliodynamics`, `Causals`, `ZeroProb`, `VideoIO`, `DSP`,
+  `Wavelets`. Every entry is `using`d under `src/`, and every `using` under
+  `src/` has an entry — the manifest carries no unused packages.
 
 | `generated/`
 | Auto-generated content directory (story exports, evidence bundles).

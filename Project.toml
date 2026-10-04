@@ -4,22 +4,25 @@ authors = ["Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>"]
 version = "0.1.0"
 license = "MPL-2.0"
 
+# Dependency hygiene (mirrors the sibling .jl packages' 2026-06-13/14 fix):
+# every entry here is `using`d somewhere under src/, and every `using` under
+# src/ has an entry here. `src/intelligence/string_board.jl` renders the
+# CrazyWall through Luxor, so Luxor is a real runtime dependency and is
+# declared below; SQLite, URIs, Gumbo, Cascadia and DuckDB were listed but
+# referenced by no source, test or benchmark file, and only inflated the
+# install/precompile step that the CI job must finish inside its timeout.
 [deps]
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 JSON3 = "0f8b85d8-7281-11e9-16c2-39a750bddbf1"
-SQLite = "0aa819cd-b072-5ff4-a722-6bc24af294d9"
 Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
 SHA = "ea8e919c-243c-51af-8825-aaa63cd721ce"
 Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
 HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
-URIs = "5c2747f8-b7ea-4ff2-ba2e-563bfd36b1d4"
 TextAnalysis = "a2db99b7-8b79-58f8-94bf-bbc811eef33d"
 Images = "916415d5-f1e6-5110-898d-aaa5f9f070e0"
+Luxor = "ae8d54c2-7ccd-5906-9d76-62fc9837b5bc"
 Graphs = "86223c79-3864-5bf0-83f7-82e725a168b6"
 MetaGraphsNext = "fa8bd995-216d-47f1-8a91-f3b68fbeb377"
-Gumbo = "708ec375-b3d6-5a57-a7ce-8257bf98657a"
-Cascadia = "54eefc05-d75b-58de-a785-1a3403f0919f"
-DuckDB = "d2f5444f-75bc-4fdf-ac35-56f514c445e1"
 StringDistances = "88034a9c-02f8-509d-84a9-84ec65e18404"
 Cliodynamics = "8d2f3e70-4c6b-5e9c-a3d1-2f8e9c0b1d2e"
 Causals = "c4a8b6d2-f9e3-4c1a-b8d7-9f2e3c4d5e6f"
@@ -32,16 +35,12 @@ Wavelets = "29a6e085-ba6d-5f35-a997-948ac2efa89a"
 julia = "1.10"
 DataFrames = "1"
 JSON3 = "1"
-SQLite = "1"
 HTTP = "1"
-URIs = "1"
 TextAnalysis = "0.7"
 Images = "0.26"
+Luxor = "3, 4"
 Graphs = "1"
 MetaGraphsNext = "0.7"
-Gumbo = "0.8"
-Cascadia = "1"
-DuckDB = "1"
 StringDistances = "0.11"
 Cliodynamics = "1"
 Causals = "0.2"
@@ -51,7 +50,8 @@ DSP = "0.7"
 Wavelets = "0.10"
 
 [extras]
+Base64 = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
-test = ["Test"]
+test = ["Base64", "Test"]
