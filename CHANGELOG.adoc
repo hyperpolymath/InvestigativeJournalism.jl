@@ -29,6 +29,14 @@ https://semver.org/spec/v2.0.0.html[Semantic Versioning].
   `ArgumentError` instead of exercising the code. Tests now write a real
   embedded PNG fixture to a temp directory and, separately, pin the intended
   "missing file is rejected, not scored" behaviour.
+* `src/storytelling/timelines.jl:43-44` used the invalid escape `\\_` in the
+  ASCII timeline banner, and `src/storage/verisim_bridge.jl:37` interpolated
+  `query` after closing the log string
+  (`println("Executing VQL: "$query" ⚡")`). Both are Julia parse errors, so
+  `using InvestigativeJournalism` raised `LoadError: ParseError` and no test
+  ran on any leg (`Julia 1.10 - ubuntu-latest`, `Julia 1.11 - ubuntu-latest`,
+  `Julia 1.11 - macos-latest`). The backslash is doubled, and the query is
+  interpolated inside the string.
 
 ==== Changed
 
@@ -43,4 +51,8 @@ https://semver.org/spec/v2.0.0.html[Semantic Versioning].
   No file under `src/`, `test/`, `benches/`, `examples/`, `ffi/` or `docs/`
   referenced any of them; they were declared packages that every CI job paid
   to download and precompile. Re-add each one with its feature.
+* `.github/workflows/diag.yml`, a temporary diagnostic workflow whose only job
+  was to copy runner output back into the repository while these failures were
+  being investigated. It was carried into `main` by the squash commit of the
+  previous pull request and is not part of the project's CI.
 

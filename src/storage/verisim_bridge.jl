@@ -34,7 +34,7 @@ Executes a Veridical Query Language (VQL) query against the investigative databa
 Example: "SELECT * FROM investigation WHERE DRIFT < 0.1 AND MODALITY = 'graph'"
 """
 function vql_query(query::String)
-    println("Executing VQL: "$query" ⚡")
+    println("Executing VQL: $query ⚡")
     # Return mock results
     return []
 end
