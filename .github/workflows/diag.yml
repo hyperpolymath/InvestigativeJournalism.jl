@@ -1,0 +1,123 @@
+# SPDX-License-Identifier: MPL-2.0
+# TEMPORARY diagnostic workflow. It exists so that the investigation of the
+# three red Julia checks (hyperpolymath/InvestigativeJournalism.jl#73) can be
+# read from outside the runner: GitHub job logs are served from
+# objects.githubusercontent.com, which is not reachable from the environment
+# coordinating this work, so the workflow records its own output in the branch
+# instead. Removed again before the pull request is opened for review.
+name: CI Diagnostic (temporary)
+
+on:
+  push:
+    branches: ['arena/**']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: diag-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - uses: julia-actions/setup-julia@fa02766e078afaaf09b14210362cee14137e6a32 # v3.0.2
+        with:
+          version: '1.11'
+
+      - uses: julia-actions/cache@a45e8fa8be21c18a06b7177052533149e61e9b38 # v3.1.0
+
+      - name: Install hyperpolymath-internal Julia deps from git
+        run: |
+          julia --project=. -e '
+            using Pkg
+            Pkg.add([
+              Pkg.PackageSpec(url="https://github.com/hyperpolymath/Cliodynamics.jl"),
+              Pkg.PackageSpec(url="https://github.com/hyperpolymath/Causals.jl"),
+              Pkg.PackageSpec(url="https://github.com/hyperpolymath/ZeroProb.jl"),
+              Pkg.PackageSpec(url="https://github.com/hyperpolymath/AcceleratorGate.jl"),
+            ])
+          '
+
+      - name: Reproduce the undeclared-dependency failure mode
+        continue-on-error: true
+        run: |
+          set -x
+          {
+            echo "### minimal reproduction: using Luxor inside a package that does not declare it"
+            echo '```'
+            REPRO=$(mktemp -d)
+            mkdir -p "$REPRO/src"
+            printf 'name = "MinRepro"\nuuid = "11111111-2222-3333-4444-555555555555"\nversion = "0.1.0"\n' > "$REPRO/Project.toml"
+            printf 'module MinRepro\nusing Luxor\nend\n' > "$REPRO/src/MinRepro.jl"
+            ENVDIR=$(mktemp -d)
+            REPRO="$REPRO" ENVDIR="$ENVDIR" julia -e '
+              using Pkg
+              Pkg.activate(ENV["ENVDIR"])
+              Pkg.add("Luxor")
+              Pkg.develop(path=ENV["REPRO"])
+              try
+                using MinRepro
+                println("UNEXPECTED: MinRepro loaded")
+              catch err
+                println("REPRO FAILURE: ", sprint(showerror, err))
+              end
+            ' 2>&1 | tail -n 30
+            echo '```'
+            echo
+            echo "### the same using-Luxor line in this repository"
+            echo '```'
+            grep -rn "using Luxor" src/ || true
+            echo '```'
+          } > /tmp/repro.txt 2>&1 || true
+          cat /tmp/repro.txt
+
+      - name: Run the CI test command and capture the output
+        continue-on-error: true
+        run: |
+          set -x
+          {
+            echo "### julia --version"
+            julia --version
+            echo
+            echo "### using InvestigativeJournalism"
+            julia --project=. -e 'using InvestigativeJournalism; println("LOAD OK")' 2>&1 | tail -n 60
+            echo
+            echo "### Pkg.status()"
+            julia --project=. -e 'using Pkg; Pkg.status()' 2>&1 | tail -n 80
+            echo
+            echo "### Pkg.test() — same command as .github/workflows/ci.yml"
+            julia --project=. -e 'using Pkg; Pkg.Registry.add("General"); Pkg.Registry.add(Pkg.RegistrySpec(url="https://github.com/hyperpolymath/julia-professional-registry.git")); Pkg.instantiate(); Pkg.build(); Pkg.test()' 2>&1
+            echo
+            echo "TEST COMMAND EXIT CODE: $?"
+          } > /tmp/ci-run.txt 2>&1 || true
+          {
+            echo "## CI diagnostic for $GITHUB_SHA"
+            echo
+            cat /tmp/repro.txt 2>/dev/null || true
+            echo
+            echo "### tail of the test run (600 lines)"
+            echo '```'
+            tail -n 600 /tmp/ci-run.txt 2>/dev/null || true
+            echo '```'
+          } > CI-DIAG.txt || true
+          wc -l CI-DIAG.txt || true
+
+      - name: Commit the diagnostic output back to the branch
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f CI-DIAG.txt
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+          else
+            git commit -m "chore(diag): capture CI output for ${GITHUB_SHA} [skip ci]"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
