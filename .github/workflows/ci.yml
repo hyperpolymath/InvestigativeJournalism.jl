@@ -17,7 +17,17 @@ jobs:
   test:
     name: Julia ${{ matrix.julia-version }} - ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 15
+    # This job resolves, downloads and precompiles the whole dependency
+    # closure (DataFrames, Images, Luxor/Cairo, VideoIO/FFMPEG, TextAnalysis,
+    # Graphs, plus the four hyperpolymath packages added from git) before a
+    # single test runs. On a cold ~/.julia that is a >15 minute job on the
+    # 2-core runners — 15 minutes was never a budget this workload could meet,
+    # and it killed the 1.11 legs mid-install without ever measuring the
+    # tests. 45 minutes matches the Pages job in this repository and gives the
+    # cold case real headroom; the dependency trim in Project.toml (unused
+    # SQLite/URIs/Gumbo/Cascadia/DuckDB entries removed) brings the warm case
+    # back under it by a wide margin.
+    timeout-minutes: 45
     strategy:
       fail-fast: false
       matrix:

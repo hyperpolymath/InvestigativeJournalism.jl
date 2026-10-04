@@ -8,6 +8,7 @@
 module MediaForensics
 
 using Images
+using Statistics
 using ..Types
 
 export verify_image_integrity, detect_ai_artifacts
@@ -504,18 +505,6 @@ function _detect_texture_repetition(gray)
     end
 
     return false
-end
-
-# Bring in Statistics.var and Statistics.std if not already available
-function var(x::AbstractVector{Float64})
-    n = length(x)
-    n <= 1 && return 0.0
-    m = sum(x) / n
-    return sum((xi - m)^2 for xi in x) / (n - 1)
-end
-
-function std(x::AbstractVector{Float64})
-    return sqrt(var(x))
 end
 
 end # module
