@@ -1,7 +1,7 @@
 name = "InvestigativeJournalism"
-uuid = "379a7c0a-3675-4b32-b948-cb4760c6e442"
+uuid = "01a11de2-b9d3-80b4-b616-640df22918c0"
 authors = ["Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>"]
-version = "0.1.0"
+version = "0.1.1"
 license = "MPL-2.0"
 
 # Dependency hygiene (mirrors the sibling .jl packages' 2026-06-13/14 fix):

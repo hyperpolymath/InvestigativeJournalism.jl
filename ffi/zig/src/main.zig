@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MPL-2.0
 // Copyright (c) Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
-// INVESTIGATIVEJOURNALIST.JL FFI Implementation
+// INVESTIGATIVEJOURNALISM.JL FFI Implementation
 //
 // This module implements the C-compatible FFI declared in src/abi/Foreign.idr
 // All types and layouts must match the Idris2 ABI definitions.
@@ -9,8 +9,8 @@
 const std = @import("std");
 
 // Version information (keep in sync with project)
-const VERSION = "0.1.0";
-const BUILD_INFO = "INVESTIGATIVEJOURNALIST.JL built with Zig " ++ @import("builtin").zig_version_string;
+const VERSION = "0.1.1";
+const BUILD_INFO = "INVESTIGATIVEJOURNALISM.JL built with Zig " ++ @import("builtin").zig_version_string;
 
 /// Thread-local error storage
 threadlocal var last_error: ?[]const u8 = null;
