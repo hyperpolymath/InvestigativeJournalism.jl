@@ -35,11 +35,13 @@ jobs:
     timeout-minutes: 45
     steps:
       # On a manual run, build the tag being released, not the default branch,
-      # so the artefacts match the tagged and registered tree. On other events
-      # inputs.version is empty and checkout uses the triggering ref.
+      # so the artefacts match the tagged and registered tree. The ref is
+      # qualified as refs/tags/: checkout resolves a bare name to a branch of
+      # that name before a tag (src/ref-helper.ts). On other events
+      # inputs.version is empty, ref is empty, and checkout uses the triggering ref.
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
-          ref: ${{ inputs.version }}
+          ref: ${{ inputs.version && format('refs/tags/{0}', inputs.version) || '' }}
 
       - uses: julia-actions/setup-julia@fa02766e078afaaf09b14210362cee14137e6a32 # v3.0.2
         with:
@@ -117,7 +119,7 @@ jobs:
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
-          ref: ${{ inputs.version }}
+          ref: ${{ inputs.version && format('refs/tags/{0}', inputs.version) || '' }}
           fetch-depth: 0
 
       - name: Generate changelog for this release
