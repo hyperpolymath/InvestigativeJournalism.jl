@@ -39,7 +39,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Send push notification email
-        uses: hyperpolymath/smtp-notify-action@ede1191ef6ff3ac02c4f4d9efdf837ee517e11d7 # v0.2.0
+        uses: hyperpolymath/smtp-notify-action@e384daf6167a7a7567642d6a62060106244d2413 # v0.5.1
         with:
           server_address: ${{ secrets.SMTP_HOST }}
           server_port: ${{ secrets.SMTP_PORT }}
