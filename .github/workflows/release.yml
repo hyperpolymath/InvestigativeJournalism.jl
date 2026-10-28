@@ -39,11 +39,11 @@ jobs:
       # qualified as refs/tags/: checkout resolves a bare name to a branch of
       # that name before a tag (src/ref-helper.ts). On other events
       # inputs.version is empty, ref is empty, and checkout uses the triggering ref.
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ inputs.version && format('refs/tags/{0}', inputs.version) || '' }}
 
-      - uses: julia-actions/setup-julia@fa02766e078afaaf09b14210362cee14137e6a32 # v3.0.2
+      - uses: julia-actions/setup-julia@da908477b5db94c10ffce8cfea9f2b3b9d5db687 # v3.0.3
         with:
           version: '1.10'
 
@@ -105,7 +105,7 @@ jobs:
           mv sbom.json dist/
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: release-artifacts
           path: dist/
@@ -117,7 +117,7 @@ jobs:
     outputs:
       changelog: ${{ steps.cliff.outputs.content }}
     steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ inputs.version && format('refs/tags/{0}', inputs.version) || '' }}
           fetch-depth: 0
@@ -170,7 +170,7 @@ jobs:
           echo "prerelease=$prerelease" >> "$GITHUB_OUTPUT"
 
       - name: Download artifacts
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: release-artifacts
           path: release/
@@ -186,7 +186,7 @@ jobs:
           subject-path: 'release/*'
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@a06a81a03ee405af7f2048a818ed3f03bbf83c7b # v2
+        uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v2
         with:
           tag_name: ${{ steps.version.outputs.version }}
           name: InvestigativeJournalism.jl ${{ steps.version.outputs.version }}
