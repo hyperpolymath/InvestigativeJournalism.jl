@@ -3,9 +3,6 @@
 zig = "latest"
 bun = "latest"
 
-# Package managers
-go-task = "latest"
-
 # Formatting & Linting
 shfmt = "latest"
 stylua = "latest"
@@ -27,7 +24,6 @@ gnu-grep = "latest"
 
 # Task runner alias
 [alias]
-task = "go-task"
 build = "cargo build --release"
 test = "cargo test"
 lint = "bun install --frozen-lockfile && bunx --no-install --bun prettier --check ."
